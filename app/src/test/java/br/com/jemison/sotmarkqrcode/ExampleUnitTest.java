@@ -1,4 +1,4 @@
-package com.example.james.softmakrqrcode;
+package br.com.jemison.sotmarkqrcode;
 
 import org.junit.Test;
 

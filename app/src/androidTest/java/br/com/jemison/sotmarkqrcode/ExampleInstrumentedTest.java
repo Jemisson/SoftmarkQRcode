@@ -1,4 +1,4 @@
-package com.example.james.softmakrqrcode;
+package br.com.jemison.sotmarkqrcode;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.james.softmakrqrcode", appContext.getPackageName());
+        assertEquals("br.com.jemison.sotmarkqrcode", appContext.getPackageName());
     }
 }

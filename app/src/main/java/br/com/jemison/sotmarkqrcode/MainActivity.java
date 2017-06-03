@@ -1,20 +1,13 @@
-package com.example.james.softmakrqrcode;
+package br.com.jemison.sotmarkqrcode;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.View;
-import android.widget.Toast;
-
 import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
 public class MainActivity extends AppCompatActivity {
-
     private ZXingScannerView scannerView;
 
     @Override
@@ -29,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         scannerView.startCamera();
     }
 
-
-
     @Override
     public void onPause() {
         super.onPause();
@@ -39,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     class ZXingScannerResultHandler implements ZXingScannerView.ResultHandler{
 
-        public final static String EXTRA_MESSAGE = "com.example.james.softmarkqrcode";
+        public final static String EXTRA_MESSAGE = "com.example.james.sotmarkqrcode";
 
         @Override
         public void handleResult(Result result){
@@ -53,5 +44,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 
 }
