@@ -3,6 +3,8 @@ package br.com.jemison.sotmarkqrcode;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -20,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(scannerView);
         scannerView.startCamera();
+    }
+
+
+    @Override
+    public void onBackPressed(){
+        System.exit(0);
     }
 
     @Override

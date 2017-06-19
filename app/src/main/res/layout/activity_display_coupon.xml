@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/fundo"
     android:orientation="vertical"
-    android:theme="@style/Theme.AppCompat.NoActionBar">
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -156,50 +157,66 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp">
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/background_light"
-            android:hint="Nome"
-            android:paddingLeft="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black"
-            android:textStyle="bold" />
-        <EditText
-            android:id="@+id/phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/background_light"
-            android:hint="11 9 9999-9999"
-            android:paddingLeft="25dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffffff"
+                android:hint="Nome"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/background_light"
+                android:hint="(11) 9 9999-9999"
+                android:paddingLeft="15dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="pegar cupom!"
             android:id="@+id/btnSubmit"
-            android:background="#555"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:allowUndo="false"
+            android:background="#555"
+            android:paddingBottom="0dp"
+            android:text="pegar cupom!" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

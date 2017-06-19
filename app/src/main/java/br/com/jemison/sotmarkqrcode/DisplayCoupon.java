@@ -59,6 +59,7 @@ public class DisplayCoupon extends AppCompatActivity {
 
 
         name = (EditText) findViewById(R.id.name);
+        phone = (EditText) findViewById(R.id.phone);
         btnSend = (Button) findViewById(R.id.btnSubmit);
 
         //Initialize HTTPURLConnection class object
@@ -67,30 +68,31 @@ public class DisplayCoupon extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!name.getText().toString().equals("")) {
-                    strname = name.getText().toString();
-                    //Call WebService
-                    new PostDataTOServer().execute();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Preencha todos os Campos!", Toast.LENGTH_LONG).show();
-                }
+            if (!name.getText().toString().equals("") && !phone.getText().toString().equals("")){
+                strname = name.getText().toString();
+                strphone = phone.getText().toString();
+                //Call WebService
+                new PostDataTOServer().execute();
+            } else {
+                Toast.makeText(getApplicationContext(), "Preencha todos os Campos!", Toast.LENGTH_LONG).show();
+            }
             }
         });
 
     }
 
-//    @Override
-//    public void onBackPressed(){
-//
-//    }
+    @Override
+    public void onBackPressed(){
+        System.exit(0);
+    }
 
-    private class PostDataTOServer extends AsyncTask<Void, Void, Void> {
+    private class PostDataTOServer extends AsyncTask<Integer, Void, Integer> {
 
         String resp = "";
         //Create hashmap Object to send parameters to web service
         HashMap<String, String> postDataParams;
         @Override
-        protected Void doInBackground(Void... arg0) {
+        protected Integer doInBackground(Integer... params) {
             postDataParams = new HashMap<String, String>();
             postDataParams.put("name", strname);
             postDataParams.put("phone", strphone);
@@ -107,8 +109,29 @@ public class DisplayCoupon extends AppCompatActivity {
 
             } catch (JSONException e) {
                 e.printStackTrace();
+
             }
-            return null;
+            return success;
+        }
+
+        @Override
+        protected void onPostExecute(Integer num){
+
+            if(num == 1){
+                Toast.makeText(getApplicationContext(), "Sucesso! Aproveite seu desconto.", Toast.LENGTH_LONG).show();
+                name.setVisibility(View.GONE);
+                phone.setVisibility(View.GONE);
+                btnSend.setText("SAIR");
+                btnSend.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        System.exit(0);
+                    }
+                });
+            } else {
+                Toast.makeText(getApplicationContext(), "Ops! Algo deu errado. :(", Toast.LENGTH_LONG).show();
+            }
+
         }
 
     }
